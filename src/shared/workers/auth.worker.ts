@@ -1,5 +1,5 @@
 import { authService } from './../services/db/auth.service';
-import { DoneCallback, Job} from 'bull';
+import { DoneCallback, Job } from 'bull';
 import Logger from 'bunyan';
 import { config } from '@root/config';
 

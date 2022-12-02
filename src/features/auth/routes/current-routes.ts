@@ -1,6 +1,6 @@
 import { authMiddleware } from './../../../shared/globals/helpers/authMiddleware';
 import { CurrentUser } from '@auth/controllers/currentUser';
-import express, {Router} from 'express';
+import express, { Router } from 'express';
 
 class CurrentUserRoutes {
   private router: Router;
@@ -13,6 +13,6 @@ class CurrentUserRoutes {
     this.router.get('/currentuser', authMiddleware.checkAuthentication, CurrentUser.prototype.read);
     return this.router;
   }
-};
+}
 
 export const currentUserRoutes: CurrentUserRoutes = new CurrentUserRoutes();

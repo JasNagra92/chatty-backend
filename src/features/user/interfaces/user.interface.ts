@@ -1,7 +1,7 @@
- import mongoose, {Document} from 'mongoose';
- import { ObjectId } from 'mongodb';
+import mongoose, { Document } from 'mongoose';
+import { ObjectId } from 'mongodb';
 
- export interface IUserDocument extends Document {
+export interface IUserDocument extends Document {
   _id: string | ObjectId;
   authId: string | ObjectId;
   username?: string;
@@ -26,9 +26,9 @@
   passwordResetToken?: string;
   passwordResetExpires?: number | string;
   createdAt?: Date;
- }
+}
 
- export interface IUser {
+export interface IUser {
   _id: string | ObjectId;
   authId: string | ObjectId;
   uId: string;
@@ -53,65 +53,64 @@
   passwordResetToken?: string;
   passwordResetExpires?: number | string;
   createdAt?: Date;
- }
+}
 
- export interface IResetPasswordParams {
+export interface IResetPasswordParams {
   username: string;
   email: string;
   ipaddress: string;
-  date: string
- }
+  date: string;
+}
 
- export interface INotificationSettings {
-  messages: boolean,
+export interface INotificationSettings {
+  messages: boolean;
   reactions: boolean;
   comments: boolean;
-  follows: boolean
- }
+  follows: boolean;
+}
 
- export interface IBasicInfo {
+export interface IBasicInfo {
   quote: string;
   work: string;
   school: string;
-  location: string
- }
+  location: string;
+}
 
- export interface ISocialLinks {
+export interface ISocialLinks {
   facebook: string;
   instagram: string;
   twitter: string;
   youtube: string;
- }
+}
 
- export interface ISocketData {
+export interface ISocketData {
   blockedUser: string;
   blockedBy: string;
- }
+}
 
- export interface ILogin {
-  userId: string
- }
+export interface ILogin {
+  userId: string;
+}
 
- export interface IUserJob {
+export interface IUserJob {
   keyOne?: string;
   keyTwo?: string;
   key?: string;
-  value?: string | INotificationSettings | IUserDocument
- }
+  value?: string | INotificationSettings | IUserDocument;
+}
 
- export interface IUserJobInfo {
+export interface IUserJobInfo {
   key?: string;
-  value?: string | ISocialLinks
- }
+  value?: string | ISocialLinks;
+}
 
- export interface IEmailJob {
+export interface IEmailJob {
   receiverEmail: string;
   template: string;
   subject: string;
- }
+}
 
- export interface IAllUsers {
+export interface IAllUsers {
   users: IUserDocument[];
   totalUsers: number;
- }
-
+}

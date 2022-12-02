@@ -109,7 +109,7 @@ export class ChattyServer {
       log.info(`Server running on port ${SERVER_PORT}`);
     });
   }
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private socketIOConnections(io: Server): void {
     log.info('socketIOConnections');
   }

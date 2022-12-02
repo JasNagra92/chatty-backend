@@ -36,13 +36,20 @@ export class UserCache extends BaseCache {
       social
     } = createdUser;
     const firstList: string[] = [
-      '_id', `${_id}`,
-      'uId', `${uId}`,
-      'username', `${username}`,
-      'email', `${email}`,
-      'avatarColor', `${avatarColor}`,
-      'createdAt', `${createdAt}`,
-      'postsCount', `${postsCount}`
+      '_id',
+      `${_id}`,
+      'uId',
+      `${uId}`,
+      'username',
+      `${username}`,
+      'email',
+      `${email}`,
+      'avatarColor',
+      `${avatarColor}`,
+      'createdAt',
+      `${createdAt}`,
+      'postsCount',
+      `${postsCount}`
     ];
     const secondList: string[] = [
       'blocked',
@@ -61,34 +68,40 @@ export class UserCache extends BaseCache {
       JSON.stringify(social)
     ];
     const thirdList: string[] = [
-      'work', `${work}`,
-      'location', `${location}`,
-      'school', `${school}`,
-      'quote', `${quote}`,
-      'bgImageVersion', `${bgImageVersion}`,
-      'bgImageId', `${bgImageId}`
+      'work',
+      `${work}`,
+      'location',
+      `${location}`,
+      'school',
+      `${school}`,
+      'quote',
+      `${quote}`,
+      'bgImageVersion',
+      `${bgImageVersion}`,
+      'bgImageId',
+      `${bgImageId}`
     ];
     const dataToSave: string[] = [...firstList, ...secondList, ...thirdList];
 
     try {
-      if(!this.client.isOpen) {
+      if (!this.client.isOpen) {
         await this.client.connect();
       }
-      await this.client.ZADD('user', { score: parseInt(userUId, 10), value: `${key}`});
+      await this.client.ZADD('user', { score: parseInt(userUId, 10), value: `${key}` });
       await this.client.HSET(`user:${key}`, dataToSave);
     } catch (error) {
       log.error(error);
       throw new ServerError('Server error. Try again');
     }
-  };
+  }
 
   public async getUserFromCache(userId: string): Promise<IUserDocument | null> {
     try {
-      if(!this.client.isOpen) {
+      if (!this.client.isOpen) {
         await this.client.connect();
       }
 
-      const response:IUserDocument = await this.client.HGETALL(`users:${userId}`) as unknown as IUserDocument;
+      const response: IUserDocument = (await this.client.HGETALL(`users:${userId}`)) as unknown as IUserDocument;
       response.createdAt = new Date(Helpers.parseJson(`${response.createdAt}`));
       response.postsCount = Helpers.parseJson(`${response.postsCount}`);
       response.blocked = Helpers.parseJson(`${response.blocked}`);
@@ -99,7 +112,6 @@ export class UserCache extends BaseCache {
       response.followingCount = Helpers.parseJson(`${response.followingCount}`);
 
       return response;
-
     } catch (error) {
       log.error(error);
       throw new ServerError('Server error. Try Again');

@@ -1,17 +1,17 @@
 import { IAuthDocument } from '@auth/interfaces/auth.interface';
-import {model, Model, Schema} from 'mongoose';
-import {hash,compare} from 'bcryptjs';
+import { model, Model, Schema } from 'mongoose';
+import { hash, compare } from 'bcryptjs';
 
 const SALT_ROUND = 10;
 
 const authSchema: Schema = new Schema(
   {
-    username: {type: String},
-    uId: {type: String},
-    email: {type: String},
-    password: {type: String},
-    avatarColor: {type: String},
-    createdAt: {type: Date, default: Date.now}
+    username: { type: String },
+    uId: { type: String },
+    email: { type: String },
+    password: { type: String },
+    avatarColor: { type: String },
+    createdAt: { type: Date, default: Date.now }
   },
   {
     toJSON: {
@@ -39,4 +39,4 @@ authSchema.methods.hashPassword = async function (password: string): Promise<str
 };
 
 const AuthModel: Model<IAuthDocument> = model<IAuthDocument>('Auth', authSchema, 'Auth');
-export {AuthModel};
+export { AuthModel };

@@ -8,11 +8,10 @@ import { joiValidation } from '@global/decorators/joi-validation.decorators';
 import { authService } from '@service/db/auth.service';
 import { BadRequestError } from '@global/helpers/error-handler';
 import { loginSchema } from '../schemas/signin';
-import {IAuthDocument} from './../interfaces/auth.interface';
+import { IAuthDocument } from './../interfaces/auth.interface';
 
 export class SignIn {
   @joiValidation(loginSchema)
-
   public async read(req: Request, res: Response): Promise<void> {
     const { username, password } = req.body;
     const existingUser: IAuthDocument = await authService.getAuthUserByUsername(username);
