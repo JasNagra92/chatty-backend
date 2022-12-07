@@ -36,8 +36,6 @@ export class SignIn {
       config.JWT_TOKEN!
     );
 
-    req.session = { jwt: userJwt };
-
     const userDocument: IUserDocument = {
       ...user,
       authId: existingUser!._id,
@@ -48,6 +46,7 @@ export class SignIn {
       createdAt: existingUser!.createdAt
     } as IUserDocument;
 
-    res.status(HTTP_STATUS.OK).json({ message: 'User login Successful', user: userDocument, token: userJwt });
+    req.session = { jwt: userJwt };
+    res.status(HTTP_STATUS.OK).json({ message: 'User login successful', user: userDocument, token: userJwt });
   }
 }

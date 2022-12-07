@@ -23,35 +23,6 @@ export interface IUserDocument extends Document {
   bgImageVersion: string;
   bgImageId: string;
   profilePicture: string;
-  passwordResetToken?: string;
-  passwordResetExpires?: number | string;
-  createdAt?: Date;
-}
-
-export interface IUser {
-  _id: string | ObjectId;
-  authId: string | ObjectId;
-  uId: string;
-  username: string;
-  email: string;
-  password?: string;
-  avatarColor: string;
-  postsCount: number;
-  work: string;
-  school: string;
-  quote: string;
-  location: string;
-  blocked: mongoose.Types.ObjectId[];
-  blockedBy: mongoose.Types.ObjectId[];
-  followersCount: number;
-  followingCount: number;
-  notifications: INotificationSettings;
-  social: ISocialLinks;
-  bgImageVersion: string;
-  bgImageId: string;
-  profilePicture: string;
-  passwordResetToken?: string;
-  passwordResetExpires?: number | string;
   createdAt?: Date;
 }
 

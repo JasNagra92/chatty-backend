@@ -1,3 +1,4 @@
+import { IEmailJob } from './../../../features/user/interfaces/user.interface';
 import { IAuthJob } from './../../../features/auth/interfaces/auth.interface';
 import Queue, { Job } from 'bull';
 import Logger from 'bunyan';
@@ -6,7 +7,7 @@ import { BullAdapter } from '@bull-board/api/bullAdapter';
 import { ExpressAdapter } from '@bull-board/express';
 import { config } from '@root/config';
 
-type IBaseJobData = IAuthJob;
+type IBaseJobData = IAuthJob | IEmailJob;
 
 let bullAdapters: BullAdapter[] = [];
 
@@ -18,9 +19,10 @@ export abstract class BaseQueue {
 
   constructor(queueName: string) {
     this.queue = new Queue(queueName, `${config.REDIS_HOST}`);
+
     bullAdapters.push(new BullAdapter(this.queue));
-    // remove duplicates from bullAdapters
     bullAdapters = [...new Set(bullAdapters)];
+
     serverAdapter = new ExpressAdapter();
     serverAdapter.setBasePath('/queues');
 
@@ -45,7 +47,7 @@ export abstract class BaseQueue {
   }
 
   protected addJob(name: string, data: IBaseJobData): void {
-    this.queue.add(name, data, { attempts: 3, backoff: { type: 'fixed', delay: 5000 } });
+    this.queue.add(name, data, { attempts: 5, backoff: { type: 'fixed', delay: 5000 } });
   }
 
   protected processJob(name: string, concurrency: number, callback: Queue.ProcessCallbackFunction<void>): void {
