@@ -1,3 +1,5 @@
+import { ICommentJob } from './../../../features/comments/interfaces/comment.interface';
+import { IPostJobData } from './../../../features/post/interfaces/post.interface';
 import { IEmailJob } from './../../../features/user/interfaces/user.interface';
 import { IAuthJob } from './../../../features/auth/interfaces/auth.interface';
 import Queue, { Job } from 'bull';
@@ -7,7 +9,7 @@ import { BullAdapter } from '@bull-board/api/bullAdapter';
 import { ExpressAdapter } from '@bull-board/express';
 import { config } from '@root/config';
 
-type IBaseJobData = IAuthJob | IEmailJob;
+type IBaseJobData = IAuthJob | IEmailJob | IPostJobData | ICommentJob;
 
 let bullAdapters: BullAdapter[] = [];
 

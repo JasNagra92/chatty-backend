@@ -28,5 +28,6 @@ export class Helpers {
     } catch (error) {
       return property;
     }
+    return JSON.parse(property);
   }
 }

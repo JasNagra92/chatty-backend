@@ -48,7 +48,7 @@ export const authMock = {
   username: 'Manny',
   email: 'manny@me.com',
   avatarColor: '#9c27b0',
-  createdAt: '2022-12-07T06:19:04.666Z',
+  createdAt: '2022-08-31T07:42:24.451Z',
   save: () => {}
 } as unknown as IAuthDocument;
 
