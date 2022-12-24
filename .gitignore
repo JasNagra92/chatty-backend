@@ -78,6 +78,7 @@ web_modules/
 
 # dotenv environment variable files
 .env
+.env.develop
 .env.development.local
 .env.test.local
 .env.production.local
@@ -142,5 +143,7 @@ build
 
 # SvelteKit build / generate output
 .svelte-kit
+
+.terraform/
 
 # End of https://www.toptal.com/developers/gitignore/api/node
