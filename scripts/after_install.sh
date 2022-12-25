@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash -xe
+exec > >(tee /var/log/after-install.log|logger -t after-install -s 2>/dev/console) 2>&1
 
 cd /home/ec2-user/chatty-backend
 sudo rm -rf env-file.zip
