@@ -1,4 +1,4 @@
-#!/bin/bas
+#!/bin/bash
 
 DIT="/home/ec2-user/chatty-backend"
 if [ -d "$DIR"]; then
