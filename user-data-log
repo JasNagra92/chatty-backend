@@ -1,0 +1,852 @@
+Cloud-init v. 19.3-46.amzn2 running 'init-local' at Sun, 25 Dec 2022 22:41:39 +0000. Up 4.59 seconds.
+Cloud-init v. 19.3-46.amzn2 running 'init' at Sun, 25 Dec 2022 22:41:40 +0000. Up 5.44 seconds.
+ci-info: +++++++++++++++++++++++++++++++++++++Net device info++++++++++++++++++++++++++++++++++++++
+ci-info: +--------+------+---------------------------+---------------+--------+-------------------+
+ci-info: | Device |  Up  |          Address          |      Mask     | Scope  |     Hw-Address    |
+ci-info: +--------+------+---------------------------+---------------+--------+-------------------+
+ci-info: |  eth0  | True |         10.0.3.43         | 255.255.255.0 | global | 02:42:02:56:10:2f |
+ci-info: |  eth0  | True | fe80::42:2ff:fe56:102f/64 |       .       |  link  | 02:42:02:56:10:2f |
+ci-info: |   lo   | True |         127.0.0.1         |   255.0.0.0   |  host  |         .         |
+ci-info: |   lo   | True |          ::1/128          |       .       |  host  |         .         |
+ci-info: +--------+------+---------------------------+---------------+--------+-------------------+
+ci-info: ++++++++++++++++++++++++++++++Route IPv4 info+++++++++++++++++++++++++++++++
+ci-info: +-------+-----------------+----------+-----------------+-----------+-------+
+ci-info: | Route |   Destination   | Gateway  |     Genmask     | Interface | Flags |
+ci-info: +-------+-----------------+----------+-----------------+-----------+-------+
+ci-info: |   0   |     0.0.0.0     | 10.0.3.1 |     0.0.0.0     |    eth0   |   UG  |
+ci-info: |   1   |     10.0.3.0    | 0.0.0.0  |  255.255.255.0  |    eth0   |   U   |
+ci-info: |   2   | 169.254.169.254 | 0.0.0.0  | 255.255.255.255 |    eth0   |   UH  |
+ci-info: +-------+-----------------+----------+-----------------+-----------+-------+
+ci-info: +++++++++++++++++++Route IPv6 info+++++++++++++++++++
+ci-info: +-------+-------------+---------+-----------+-------+
+ci-info: | Route | Destination | Gateway | Interface | Flags |
+ci-info: +-------+-------------+---------+-----------+-------+
+ci-info: |   9   |  fe80::/64  |    ::   |    eth0   |   U   |
+ci-info: |   11  |    local    |    ::   |    eth0   |   U   |
+ci-info: |   12  |   ff00::/8  |    ::   |    eth0   |   U   |
+ci-info: +-------+-------------+---------+-----------+-------+
+Cloud-init v. 19.3-46.amzn2 running 'modules:config' at Sun, 25 Dec 2022 22:41:41 +0000. Up 6.63 seconds.
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Existing lock /var/run/yum.pid: another copy is running as pid 3169.
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  31 M RSS (250 MB VSZ)
+    Started: Sun Dec 25 22:41:41 2022 - 00:01 ago
+    State  : Running, pid: 3169
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  91 M RSS (383 MB VSZ)
+    Started: Sun Dec 25 22:41:41 2022 - 00:03 ago
+    State  : Running, pid: 3169
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  96 M RSS (388 MB VSZ)
+    Started: Sun Dec 25 22:41:41 2022 - 00:05 ago
+    State  : Running, pid: 3169
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory : 170 M RSS (462 MB VSZ)
+    Started: Sun Dec 25 22:41:41 2022 - 00:07 ago
+    State  : Running, pid: 3169
+No packages needed for security; 0 packages available
+No packages marked for update
+Cloud-init v. 19.3-46.amzn2 running 'modules:final' at Sun, 25 Dec 2022 22:41:51 +0000. Up 16.78 seconds.
++ exec
+++ tee /var/log/user-data.log
+++ logger -t user-data -s
+[ec2-user@ip-10-0-3-43 log]$ ls
+after-install.log  app-start.log  aws                 boot.log  chrony          cloud-init-output.log  dmesg               journal  maillog   sa      spooler   user-data.log  yum.log
+amazon             audit          before-install.log  btmp      cloud-init.log  cron                   grubby_prune_debug  lastlog  messages  secure  tallylog  wtmp
+[ec2-user@ip-10-0-3-43 log]$ ls -l
+total 420
+-rw-r--r--  1 root   root              1992 Dec 25 22:44 after-install.log
+drwxr-xr-x  3 root   root                17 Dec 25 22:41 amazon
+-rw-r--r--  1 root   root              5623 Dec 25 22:44 app-start.log
+drwx------  2 root   root                23 Dec 25 22:41 audit
+drwxr-xr-x  3 root   root                30 Dec 25 22:42 aws
+-rw-r--r--  1 root   root               111 Dec 25 22:43 before-install.log
+-rw-------  1 root   root              8642 Dec 25 22:41 boot.log
+-rw-------  1 root   utmp                 0 Dec 15 21:54 btmp
+drwxr-x---  2 chrony chrony              72 Dec 25 22:41 chrony
+-rw-r--r--  1 root   root             93933 Dec 25 22:41 cloud-init.log
+-rw-r-----  1 root   root              3681 Dec 25 22:41 cloud-init-output.log
+-rw-------  1 root   root               194 Dec 25 22:41 cron
+-rw-r--r--  1 root   root             28301 Dec 25 22:41 dmesg
+-rw-r--r--  1 root   root               193 Dec 15 21:53 grubby_prune_debug
+drwxr-sr-x+ 3 root   systemd-journal     46 Dec 25 22:41 journal
+-rw-r--r--  1 root   root            292292 Dec 25 22:44 lastlog
+-rw-------  1 root   root               204 Dec 25 22:41 maillog
+-rw-------  1 root   root            175563 Dec 25 22:48 messages
+drwxr-xr-x  2 root   root                18 Dec 25 22:41 sa
+-rw-------  1 root   root             11416 Dec 25 22:47 secure
+-rw-------  1 root   root                 0 Dec 15 21:54 spooler
+-rw-------  1 root   root                 0 Dec 15 21:53 tallylog
+-rw-r--r--  1 root   root             45449 Dec 25 22:44 user-data.log
+-rw-rw-r--  1 root   utmp              2688 Dec 25 22:42 wtmp
+-rw-------  1 root   root              1396 Dec 25 22:42 yum.log
+[ec2-user@ip-10-0-3-43 log]$ cat user-data.log
++ sudo yum update -y
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+No packages marked for update
++ sudo yum install ruby -y
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Resolving Dependencies
+--> Running transaction check
+---> Package ruby.x86_64 0:2.0.0.648-36.amzn2.0.3 will be installed
+--> Processing Dependency: ruby-libs(x86-64) = 2.0.0.648-36.amzn2.0.3 for package: ruby-2.0.0.648-36.amzn2.0.3.x86_64
+--> Processing Dependency: rubygem(bigdecimal) >= 1.2.0 for package: ruby-2.0.0.648-36.amzn2.0.3.x86_64
+--> Processing Dependency: ruby(rubygems) >= 2.0.14.1 for package: ruby-2.0.0.648-36.amzn2.0.3.x86_64
+--> Processing Dependency: libruby.so.2.0()(64bit) for package: ruby-2.0.0.648-36.amzn2.0.3.x86_64
+--> Running transaction check
+---> Package ruby-libs.x86_64 0:2.0.0.648-36.amzn2.0.3 will be installed
+---> Package rubygem-bigdecimal.x86_64 0:1.2.0-36.amzn2.0.3 will be installed
+---> Package rubygems.noarch 0:2.0.14.1-36.amzn2.0.3 will be installed
+--> Processing Dependency: rubygem(rdoc) >= 4.0.0 for package: rubygems-2.0.14.1-36.amzn2.0.3.noarch
+--> Processing Dependency: rubygem(psych) >= 2.0.0 for package: rubygems-2.0.14.1-36.amzn2.0.3.noarch
+--> Processing Dependency: rubygem(io-console) >= 0.4.2 for package: rubygems-2.0.14.1-36.amzn2.0.3.noarch
+--> Running transaction check
+---> Package rubygem-io-console.x86_64 0:0.4.2-36.amzn2.0.3 will be installed
+---> Package rubygem-psych.x86_64 0:2.0.0-36.amzn2.0.3 will be installed
+---> Package rubygem-rdoc.noarch 0:4.0.0-36.amzn2.0.3 will be installed
+--> Processing Dependency: ruby(irb) = 2.0.0.648 for package: rubygem-rdoc-4.0.0-36.amzn2.0.3.noarch
+--> Processing Dependency: rubygem(json) >= 1.7.7 for package: rubygem-rdoc-4.0.0-36.amzn2.0.3.noarch
+--> Running transaction check
+---> Package ruby-irb.noarch 0:2.0.0.648-36.amzn2.0.3 will be installed
+---> Package rubygem-json.x86_64 0:1.7.7-36.amzn2.0.3 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package               Arch      Version                    Repository     Size
+================================================================================
+Installing:
+ ruby                  x86_64    2.0.0.648-36.amzn2.0.3     amzn2-core     74 k
+Installing for dependencies:
+ ruby-irb              noarch    2.0.0.648-36.amzn2.0.3     amzn2-core     95 k
+ ruby-libs             x86_64    2.0.0.648-36.amzn2.0.3     amzn2-core    2.8 M
+ rubygem-bigdecimal    x86_64    1.2.0-36.amzn2.0.3         amzn2-core     85 k
+ rubygem-io-console    x86_64    0.4.2-36.amzn2.0.3         amzn2-core     56 k
+ rubygem-json          x86_64    1.7.7-36.amzn2.0.3         amzn2-core     81 k
+ rubygem-psych         x86_64    2.0.0-36.amzn2.0.3         amzn2-core     85 k
+ rubygem-rdoc          noarch    4.0.0-36.amzn2.0.3         amzn2-core    324 k
+ rubygems              noarch    2.0.14.1-36.amzn2.0.3      amzn2-core    216 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+8 Dependent packages)
+
+Total download size: 3.8 M
+Installed size: 12 M
+Downloading packages:
+--------------------------------------------------------------------------------
+Total                                               22 MB/s | 3.8 MB  00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : ruby-libs-2.0.0.648-36.amzn2.0.3.x86_64                      1/9
+  Installing : rubygem-psych-2.0.0-36.amzn2.0.3.x86_64                      2/9
+  Installing : rubygem-json-1.7.7-36.amzn2.0.3.x86_64                       3/9
+  Installing : ruby-irb-2.0.0.648-36.amzn2.0.3.noarch                       4/9
+  Installing : rubygem-rdoc-4.0.0-36.amzn2.0.3.noarch                       5/9
+  Installing : ruby-2.0.0.648-36.amzn2.0.3.x86_64                           6/9
+  Installing : rubygem-bigdecimal-1.2.0-36.amzn2.0.3.x86_64                 7/9
+  Installing : rubygems-2.0.14.1-36.amzn2.0.3.noarch                        8/9
+  Installing : rubygem-io-console-0.4.2-36.amzn2.0.3.x86_64                 9/9
+  Verifying  : rubygem-io-console-0.4.2-36.amzn2.0.3.x86_64                 1/9
+  Verifying  : ruby-irb-2.0.0.648-36.amzn2.0.3.noarch                       2/9
+  Verifying  : ruby-2.0.0.648-36.amzn2.0.3.x86_64                           3/9
+  Verifying  : rubygem-psych-2.0.0-36.amzn2.0.3.x86_64                      4/9
+  Verifying  : rubygem-rdoc-4.0.0-36.amzn2.0.3.noarch                       5/9
+  Verifying  : rubygem-json-1.7.7-36.amzn2.0.3.x86_64                       6/9
+  Verifying  : rubygems-2.0.14.1-36.amzn2.0.3.noarch                        7/9
+  Verifying  : rubygem-bigdecimal-1.2.0-36.amzn2.0.3.x86_64                 8/9
+  Verifying  : ruby-libs-2.0.0.648-36.amzn2.0.3.x86_64                      9/9
+
+Installed:
+  ruby.x86_64 0:2.0.0.648-36.amzn2.0.3
+
+Dependency Installed:
+  ruby-irb.noarch 0:2.0.0.648-36.amzn2.0.3
+  ruby-libs.x86_64 0:2.0.0.648-36.amzn2.0.3
+  rubygem-bigdecimal.x86_64 0:1.2.0-36.amzn2.0.3
+  rubygem-io-console.x86_64 0:0.4.2-36.amzn2.0.3
+  rubygem-json.x86_64 0:1.7.7-36.amzn2.0.3
+  rubygem-psych.x86_64 0:2.0.0-36.amzn2.0.3
+  rubygem-rdoc.noarch 0:4.0.0-36.amzn2.0.3
+  rubygems.noarch 0:2.0.14.1-36.amzn2.0.3
+
+Complete!
++ sudo yum install wget -y
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Package wget-1.14-18.amzn2.1.x86_64 already installed and latest version
+Nothing to do
++ cd /home/ec2-user/
++ wget https://aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com/latest/install
+--2022-12-25 22:41:57--  https://aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com/latest/install
+Resolving aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com (aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com)... 3.5.81.156, 52.92.131.130, 52.92.212.170, ...
+Connecting to aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com (aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com)|3.5.81.156|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 17816 (17K) []
+Saving to: 'install'
+
+     0K .......... .......                                    100% 34.1M=0s
+
+2022-12-25 22:41:57 (34.1 MB/s) - 'install' saved [17816/17816]
+
++ sudo chmod +x ./install
++ sudo ./install auto
+++ program_is_installed node
+++ local return_=1
+++ type node
+++ local return_=0
+++ echo 0
++ '[' 0 == 0 ']'
++ curl -fsSL https://rpm.nodesource.com/setup_16.x
++ sudo bash -
+
+## Installing the NodeSource Node.js 16.x repo...
+
+
+## Inspecting system...
+
++ rpm -q --whatprovides redhat-release || rpm -q --whatprovides centos-release || rpm -q --whatprovides cloudlinux-release || rpm -q --whatprovides sl-release || rpm -q --whatprovides fedora-release
++ uname -m
+
+## Confirming "el7-x86_64" is supported...
+
++ curl -sLf -o /dev/null 'https://rpm.nodesource.com/pub_16.x/el/7/x86_64/nodesource-release-el7-1.noarch.rpm'
+
+## Downloading release setup RPM...
+
++ mktemp
++ curl -sL -o '/tmp/tmp.nnejTTS4Xm' 'https://rpm.nodesource.com/pub_16.x/el/7/x86_64/nodesource-release-el7-1.noarch.rpm'
+
+## Installing release setup RPM...
+
++ rpm -i --nosignature --force '/tmp/tmp.nnejTTS4Xm'
+
+## Cleaning up...
+
++ rm -f '/tmp/tmp.nnejTTS4Xm'
+
+## Checking for existing installations...
+
++ rpm -qa 'node|npm' | grep -v nodesource
+
+## Run `sudo yum install -y nodejs` to install Node.js 16.x and npm.
+## You may run dnf if yum is not available:
+     sudo dnf install -y nodejs
+## You may also need development tools to build native addons:
+     sudo yum install gcc-c++ make
+## To install the Yarn package manager, run:
+     curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+     sudo yum install yarn
+
++ sudo yum install -y nodejs
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Existing lock /var/run/yum.pid: another copy is running as pid 3405.
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory : 110 M RSS (402 MB VSZ)
+    Started: Sun Dec 25 22:42:02 2022 - 00:02 ago
+    State  : Running, pid: 3405
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory : 169 M RSS (461 MB VSZ)
+    Started: Sun Dec 25 22:42:02 2022 - 00:04 ago
+    State  : Running, pid: 3405
+Resolving Dependencies
+--> Running transaction check
+---> Package nodejs.x86_64 2:16.19.0-1nodesource will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package      Arch         Version                       Repository        Size
+================================================================================
+Installing:
+ nodejs       x86_64       2:16.19.0-1nodesource         nodesource        32 M
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 32 M
+Installed size: 90 M
+Downloading packages:
+warning: /var/cache/yum/x86_64/2/nodesource/packages/nodejs-16.19.0-1nodesource.x86_64.rpm: Header V4 RSA/SHA512 Signature, key ID 34fa74dd: NOKEY
+Public key for nodejs-16.19.0-1nodesource.x86_64.rpm is not installed
+Retrieving key from file:///etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
+Importing GPG key 0x34FA74DD:
+ Userid     : "NodeSource <gpg-rpm@nodesource.com>"
+ Fingerprint: 2e55 207a 95d9 944b 0cc9 3261 5ddb e8d4 34fa 74dd
+ Package    : nodesource-release-el7-1.noarch (installed)
+ From       : /etc/pki/rpm-gpg/NODESOURCE-GPG-SIGNING-KEY-EL
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Warning: RPMDB altered outside of yum.
+  Installing : 2:nodejs-16.19.0-1nodesource.x86_64                          1/1
+  Verifying  : 2:nodejs-16.19.0-1nodesource.x86_64                          1/1
+
+Installed:
+  nodejs.x86_64 2:16.19.0-1nodesource
+
+Complete!
+++ program_is_installed git
+++ local return_=1
+++ type git
+++ local return_=0
+++ echo 0
++ '[' 0 == 0 ']'
++ sudo yum install git -y
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Resolving Dependencies
+--> Running transaction check
+---> Package git.x86_64 0:2.38.1-1.amzn2.0.1 will be installed
+--> Processing Dependency: perl-Git = 2.38.1-1.amzn2.0.1 for package: git-2.38.1-1.amzn2.0.1.x86_64
+--> Processing Dependency: git-core-doc = 2.38.1-1.amzn2.0.1 for package: git-2.38.1-1.amzn2.0.1.x86_64
+--> Processing Dependency: git-core = 2.38.1-1.amzn2.0.1 for package: git-2.38.1-1.amzn2.0.1.x86_64
+--> Processing Dependency: perl(Term::ReadKey) for package: git-2.38.1-1.amzn2.0.1.x86_64
+--> Processing Dependency: perl(Git::I18N) for package: git-2.38.1-1.amzn2.0.1.x86_64
+--> Processing Dependency: perl(Git) for package: git-2.38.1-1.amzn2.0.1.x86_64
+--> Running transaction check
+---> Package git-core.x86_64 0:2.38.1-1.amzn2.0.1 will be installed
+---> Package git-core-doc.noarch 0:2.38.1-1.amzn2.0.1 will be installed
+---> Package perl-Git.noarch 0:2.38.1-1.amzn2.0.1 will be installed
+--> Processing Dependency: perl(Error) for package: perl-Git-2.38.1-1.amzn2.0.1.noarch
+---> Package perl-TermReadKey.x86_64 0:2.30-20.amzn2.0.2 will be installed
+--> Running transaction check
+---> Package perl-Error.noarch 1:0.17020-2.amzn2 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package              Arch       Version                   Repository      Size
+================================================================================
+Installing:
+ git                  x86_64     2.38.1-1.amzn2.0.1        amzn2-core      64 k
+Installing for dependencies:
+ git-core             x86_64     2.38.1-1.amzn2.0.1        amzn2-core     7.4 M
+ git-core-doc         noarch     2.38.1-1.amzn2.0.1        amzn2-core     2.9 M
+ perl-Error           noarch     1:0.17020-2.amzn2         amzn2-core      32 k
+ perl-Git             noarch     2.38.1-1.amzn2.0.1        amzn2-core      40 k
+ perl-TermReadKey     x86_64     2.30-20.amzn2.0.2         amzn2-core      31 k
+
+Transaction Summary
+================================================================================
+Install  1 Package (+5 Dependent packages)
+
+Total download size: 11 M
+Installed size: 43 M
+Downloading packages:
+--------------------------------------------------------------------------------
+Total                                               30 MB/s |  11 MB  00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : git-core-2.38.1-1.amzn2.0.1.x86_64                           1/6
+  Installing : git-core-doc-2.38.1-1.amzn2.0.1.noarch                       2/6
+  Installing : 1:perl-Error-0.17020-2.amzn2.noarch                          3/6
+  Installing : perl-TermReadKey-2.30-20.amzn2.0.2.x86_64                    4/6
+  Installing : perl-Git-2.38.1-1.amzn2.0.1.noarch                           5/6
+  Installing : git-2.38.1-1.amzn2.0.1.x86_64                                6/6
+  Verifying  : perl-TermReadKey-2.30-20.amzn2.0.2.x86_64                    1/6
+  Verifying  : git-core-doc-2.38.1-1.amzn2.0.1.noarch                       2/6
+  Verifying  : git-2.38.1-1.amzn2.0.1.x86_64                                3/6
+  Verifying  : git-core-2.38.1-1.amzn2.0.1.x86_64                           4/6
+  Verifying  : 1:perl-Error-0.17020-2.amzn2.noarch                          5/6
+  Verifying  : perl-Git-2.38.1-1.amzn2.0.1.noarch                           6/6
+
+Installed:
+  git.x86_64 0:2.38.1-1.amzn2.0.1
+
+Dependency Installed:
+  git-core.x86_64 0:2.38.1-1.amzn2.0.1
+  git-core-doc.noarch 0:2.38.1-1.amzn2.0.1
+  perl-Error.noarch 1:0.17020-2.amzn2
+  perl-Git.noarch 0:2.38.1-1.amzn2.0.1
+  perl-TermReadKey.x86_64 0:2.30-20.amzn2.0.2
+
+Complete!
+++ program_is_installed docker
+++ local return_=1
+++ type docker
+++ local return_=0
+++ echo 0
++ '[' 0 == 0 ']'
++ sudo amazon-linux-extras install docker -y
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Existing lock /var/run/yum.pid: another copy is running as pid 3541.
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory :  77 M RSS (296 MB VSZ)
+    Started: Sun Dec 25 22:42:17 2022 - 00:00 ago
+    State  : Running, pid: 3541
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory : 164 M RSS (456 MB VSZ)
+    Started: Sun Dec 25 22:42:17 2022 - 00:02 ago
+    State  : Running, pid: 3541
+Another app is currently holding the yum lock; waiting for it to exit...
+  The other application is: yum
+    Memory : 165 M RSS (457 MB VSZ)
+    Started: Sun Dec 25 22:42:17 2022 - 00:04 ago
+    State  : Running, pid: 3541
+Cleaning repos: amzn2-core amzn2extra-docker nodesource
+14 metadata files removed
+6 sqlite files removed
+0 metadata files removed
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Resolving Dependencies
+--> Running transaction check
+---> Package docker.x86_64 0:20.10.17-1.amzn2.0.1 will be installed
+--> Processing Dependency: runc >= 1.0.0 for package: docker-20.10.17-1.amzn2.0.1.x86_64
+--> Processing Dependency: libcgroup >= 0.40.rc1-5.15 for package: docker-20.10.17-1.amzn2.0.1.x86_64
+--> Processing Dependency: containerd >= 1.3.2 for package: docker-20.10.17-1.amzn2.0.1.x86_64
+--> Processing Dependency: pigz for package: docker-20.10.17-1.amzn2.0.1.x86_64
+--> Running transaction check
+---> Package containerd.x86_64 0:1.6.8-1.amzn2 will be installed
+---> Package libcgroup.x86_64 0:0.41-21.amzn2 will be installed
+---> Package pigz.x86_64 0:2.3.4-1.amzn2.0.1 will be installed
+---> Package runc.x86_64 0:1.1.4-1.amzn2 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package        Arch       Version                  Repository             Size
+================================================================================
+Installing:
+ docker         x86_64     20.10.17-1.amzn2.0.1     amzn2extra-docker      39 M
+Installing for dependencies:
+ containerd     x86_64     1.6.8-1.amzn2            amzn2extra-docker      27 M
+ libcgroup      x86_64     0.41-21.amzn2            amzn2-core             66 k
+ pigz           x86_64     2.3.4-1.amzn2.0.1        amzn2-core             81 k
+ runc           x86_64     1.1.4-1.amzn2            amzn2extra-docker     2.9 M
+
+Transaction Summary
+================================================================================
+Install  1 Package (+4 Dependent packages)
+
+Total download size: 69 M
+Installed size: 260 M
+Downloading packages:
+--------------------------------------------------------------------------------
+Total                                               68 MB/s |  69 MB  00:01
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : runc-1.1.4-1.amzn2.x86_64                                    1/5
+  Installing : containerd-1.6.8-1.amzn2.x86_64                              2/5
+  Installing : libcgroup-0.41-21.amzn2.x86_64                               3/5
+  Installing : pigz-2.3.4-1.amzn2.0.1.x86_64                                4/5
+  Installing : docker-20.10.17-1.amzn2.0.1.x86_64                           5/5
+  Verifying  : runc-1.1.4-1.amzn2.x86_64                                    1/5
+  Verifying  : pigz-2.3.4-1.amzn2.0.1.x86_64                                2/5
+  Verifying  : docker-20.10.17-1.amzn2.0.1.x86_64                           3/5
+  Verifying  : containerd-1.6.8-1.amzn2.x86_64                              4/5
+  Verifying  : libcgroup-0.41-21.amzn2.x86_64                               5/5
+
+Installed:
+  docker.x86_64 0:20.10.17-1.amzn2.0.1
+
+Dependency Installed:
+  containerd.x86_64 0:1.6.8-1.amzn2       libcgroup.x86_64 0:0.41-21.amzn2
+  pigz.x86_64 0:2.3.4-1.amzn2.0.1         runc.x86_64 0:1.1.4-1.amzn2
+
+Complete!
+Installing docker
+  0  ansible2                 available    \
+        [ =2.4.2  =2.4.6  =2.8  =stable ]
+  2  httpd_modules            available    [ =1.0  =stable ]
+  3  memcached1.5             available    \
+        [ =1.5.1  =1.5.16  =1.5.17 ]
+  6  postgresql10             available    [ =10  =stable ]
+  9  R3.4                     available    [ =3.4.3  =stable ]
+ 10  rust1                    available    \
+        [ =1.22.1  =1.26.0  =1.26.1  =1.27.2  =1.31.0  =1.38.0
+          =stable ]
+ 18  libreoffice              available    \
+        [ =5.0.6.2_15  =5.3.6.1  =stable ]
+ 19  gimp                     available    [ =2.8.22 ]
+ 20  docker=latest            enabled      \
+        [ =17.12.1  =18.03.1  =18.06.1  =18.09.9  =stable ]
+ 21  mate-desktop1.x          available    \
+        [ =1.19.0  =1.20.0  =stable ]
+ 22  GraphicsMagick1.3        available    \
+        [ =1.3.29  =1.3.32  =1.3.34  =stable ]
+ 23  tomcat8.5                available    \
+        [ =8.5.31  =8.5.32  =8.5.38  =8.5.40  =8.5.42  =8.5.50
+          =stable ]
+ 24  epel                     available    [ =7.11  =stable ]
+ 25  testing                  available    [ =1.0  =stable ]
+ 26  ecs                      available    [ =stable ]
+ 27  corretto8                available    \
+        [ =1.8.0_192  =1.8.0_202  =1.8.0_212  =1.8.0_222  =1.8.0_232
+          =1.8.0_242  =stable ]
+ 29  golang1.11               available    \
+        [ =1.11.3  =1.11.11  =1.11.13  =stable ]
+ 30  squid4                   available    [ =4  =stable ]
+ 32  lustre2.10               available    \
+        [ =2.10.5  =2.10.8  =stable ]
+ 33  java-openjdk11           available    [ =11  =stable ]
+ 34  lynis                    available    [ =stable ]
+ 36  BCC                      available    [ =0.x  =stable ]
+ 37  mono                     available    [ =5.x  =stable ]
+ 38  nginx1                   available    [ =stable ]
+ 39  ruby2.6                  available    [ =2.6  =stable ]
+ 40  mock                     available    [ =stable ]
+ 41  postgresql11             available    [ =11  =stable ]
+ 42  php7.4                   available    [ =stable ]
+ 43  livepatch                available    [ =stable ]
+ 44  python3.8                available    [ =stable ]
+ 45  haproxy2                 available    [ =stable ]
+ 46  collectd                 available    [ =stable ]
+ 47  aws-nitro-enclaves-cli   available    [ =stable ]
+ 48  R4                       available    [ =stable ]
+ 49  kernel-5.4               available    [ =stable ]
+ 50  selinux-ng               available    [ =stable ]
+ 51  php8.0                   available    [ =stable ]
+ 52  tomcat9                  available    [ =stable ]
+ 53  unbound1.13              available    [ =stable ]
+ 54  mariadb10.5              available    [ =stable ]
+ 55  kernel-5.10              available    [ =stable ]
+ 56  redis6                   available    [ =stable ]
+ 57  ruby3.0                  available    [ =stable ]
+ 58  postgresql12             available    [ =stable ]
+ 59  postgresql13             available    [ =stable ]
+ 60  mock2                    available    [ =stable ]
+ 61  dnsmasq2.85              available    [ =stable ]
+ 62  kernel-5.15              available    [ =stable ]
+ 63  postgresql14             available    [ =stable ]
+ 64  firefox                  available    [ =stable ]
+ 65  lustre                   available    [ =stable ]
+ 66  php8.1                   available    [ =stable ]
+ 67  awscli1                  available    [ =stable ]
++ sudo systemctl start docker
++ sudo docker run --name chatapp-redis -p 6379:6379 --restart always --detach redis
+Unable to find image 'redis:latest' locally
+latest: Pulling from library/redis
+3f4ca61aafcd: Pulling fs layer
+c3775af77098: Pulling fs layer
+fa7c5c7e501c: Pulling fs layer
+4059b4d2a3ce: Pulling fs layer
+6bc523bfb16a: Pulling fs layer
+20bf15ad3c24: Pulling fs layer
+4059b4d2a3ce: Waiting
+6bc523bfb16a: Waiting
+20bf15ad3c24: Waiting
+c3775af77098: Verifying Checksum
+c3775af77098: Download complete
+fa7c5c7e501c: Verifying Checksum
+fa7c5c7e501c: Download complete
+6bc523bfb16a: Verifying Checksum
+6bc523bfb16a: Download complete
+3f4ca61aafcd: Verifying Checksum
+3f4ca61aafcd: Download complete
+4059b4d2a3ce: Verifying Checksum
+4059b4d2a3ce: Download complete
+20bf15ad3c24: Verifying Checksum
+20bf15ad3c24: Download complete
+3f4ca61aafcd: Pull complete
+c3775af77098: Pull complete
+fa7c5c7e501c: Pull complete
+4059b4d2a3ce: Pull complete
+6bc523bfb16a: Pull complete
+20bf15ad3c24: Pull complete
+Digest: sha256:8184cfe57f205ab34c62bd0e9552dffeb885d2a7f82ce4295c0df344cb6f0007
+Status: Downloaded newer image for redis:latest
+08d0dd18f1f6b11a8aa674291d16a441d177d5f5012dda962a81a375e0e57c93
+++ program_is_installed pm2
+++ local return_=1
+++ type pm2
+++ local return_=0
+++ echo 0
++ '[' 0 == 0 ']'
++ npm install -g pm2
+npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+
+added 184 packages, and audited 185 packages in 6s
+
+12 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice
+npm notice New major version of npm available! 8.19.3 -> 9.2.0
+npm notice Changelog: <https://github.com/npm/cli/releases/tag/v9.2.0>
+npm notice Run `npm install -g npm@9.2.0` to update!
+npm notice
++ cd /home/ec2-user
++ git clone -b dev https://github.com/JasNagra92/chatty-backend.git
+Cloning into 'chatty-backend'...
++ cd chatty-backend
++ npm install
+npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+npm WARN deprecated har-validator@5.1.5: this library is no longer supported
+npm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142
+npm WARN deprecated @types/bull@4.10.0: This is a stub types definition. bull provides its own type definitions, so you do not need this installed.
+
+added 847 packages, and audited 848 packages in 15s
+
+79 packages are looking for funding
+  run `npm fund` for details
+
+1 high severity vulnerability
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
++ aws s3 sync s3://chatapptutorial-env-files/develop .
+download: s3://chatapptutorial-env-files/develop/env-file.zip to ./env-file.zip
+
++ unzip env-file.zip
+Archive:  env-file.zip
+  inflating: .env.develop
++ cp .env.develop .env
++ npm run build
+
+> chatapp-backend@1.0.0 build
+> tsc --project tsconfig.json && tsc-alias -p tsconfig.json
+
++ npm run start
+
+> chatapp-backend@1.0.0 start
+> NODE_ENV=production pm2 start ./build/src/app.js -i 2 --attach --watch| ./node_modules/.bin/bunyan
+
+
+                        -------------
+
+__/\\\\\\\\\\\\\____/\\\\____________/\\\\____/\\\\\\\\\_____
+ _\/\\\/////////\\\_\/\\\\\\________/\\\\\\__/\\\///////\\\___
+  _\/\\\_______\/\\\_\/\\\//\\\____/\\\//\\\_\///______\//\\\__
+   _\/\\\\\\\\\\\\\/__\/\\\\///\\\/\\\/_\/\\\___________/\\\/___
+    _\/\\\/////////____\/\\\__\///\\\/___\/\\\________/\\\//_____
+     _\/\\\_____________\/\\\____\///_____\/\\\_____/\\\//________
+      _\/\\\_____________\/\\\_____________\/\\\___/\\\/___________
+       _\/\\\_____________\/\\\_____________\/\\\__/\\\\\\\\\\\\\\\_
+        _\///______________\///______________\///__\///////////////__
+
+
+                          Runtime Edition
+
+        PM2 is a Production Process Manager for Node.js applications
+                     with a built-in Load Balancer.
+
+                Start and Daemonize any application:
+                $ pm2 start app.js
+
+                Load Balance 4 instances of api.js:
+                $ pm2 start api.js -i 4
+
+                Monitor in production:
+                $ pm2 monitor
+
+                Make pm2 auto-boot at server restart:
+                $ pm2 startup
+
+                To go further checkout:
+                http://pm2.io/
+
+
+                        -------------
+
+[PM2] Spawning PM2 daemon with pm2_home=/root/.pm2
+[PM2] PM2 Successfully daemonized
+[PM2] Starting /home/ec2-user/chatty-backend/build/src/app.js in cluster_mode (2 instances)
+[PM2] Done.
+┌─────┬────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name   │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0   │ app    │ default     │ 1.0.0   │ cluster │ 4453     │ 0s     │ 0    │ online    │ 0%       │ 50.7mb   │ root     │ enabled  │
+│ 1   │ app    │ default     │ 1.0.0   │ cluster │ 4460     │ 0s     │ 0    │ online    │ 0%       │ 40.0mb   │ root     │ enabled  │
+└─────┴────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2][INFO] Log streaming apps id: 0 1, exit with Ctrl-C or will exit in 10secs
+0|app  | (node:4453) [MONGOOSE] DeprecationWarning: Mongoose: the `strictQuery` option will be switched back to `false` by default in Mongoose 7. Use `mongoose.set('strictQuery', false);` if you want to prepare for this change. Or use `mongoose.set('strictQuery', true);` to suppress this warning.
+0|app  | (Use `node --trace-deprecation ...` to show where the warning was created)
+0|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4453,"level":30,"msg":"Worker with process id of 4453 has started...","time":"2022-12-25T22:43:40.874Z","v":0}
+0|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4453,"level":30,"msg":"Server has started with process 4453","time":"2022-12-25T22:43:40.881Z","v":0}
+0|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4453,"level":30,"msg":"Server running on port 4000","time":"2022-12-25T22:43:40.918Z","v":0}
+0|app  | {"name":"setupDatabase","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4453,"level":30,"msg":"successfully connected to database.","time":"2022-12-25T22:43:41.075Z","v":0}
+1|app  | (node:4460) [MONGOOSE] DeprecationWarning: Mongoose: the `strictQuery` option will be switched back to `false` by default in Mongoose 7. Use `mongoose.set('strictQuery', false);` if you want to prepare for this change. Or use `mongoose.set('strictQuery', true);` to suppress this warning.
+1|app  | (Use `node --trace-deprecation ...` to show where the warning was created)
+1|app  | (node:4460) [MONGOOSE] DeprecationWarning: Mongoose: the `strictQuery` option will be switched back to `false` by default in Mongoose 7. Use `mongoose.set('strictQuery', false);` if you want to prepare for this change. Or use `mongoose.set('strictQuery', true);` to suppress this warning.
+1|app  | (Use `node --trace-deprecation ...` to show where the warning was created)
+1|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":30,"msg":"Worker with process id of 4460 has started...","time":"2022-12-25T22:43:41.267Z","v":0}
+1|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":30,"msg":"Worker with process id of 4460 has started...","time":"2022-12-25T22:43:41.267Z","v":0}
+1|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":30,"msg":"Server has started with process 4460","time":"2022-12-25T22:43:41.268Z","v":0}
+1|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":30,"msg":"Server has started with process 4460","time":"2022-12-25T22:43:41.268Z","v":0}
+1|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":30,"msg":"Server running on port 4000","time":"2022-12-25T22:43:41.326Z","v":0}
+1|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":30,"msg":"Server running on port 4000","time":"2022-12-25T22:43:41.326Z","v":0}
+1|app  | {"name":"setupDatabase","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":30,"msg":"successfully connected to database.","time":"2022-12-25T22:43:41.500Z","v":0}
+1|app  | {"name":"setupDatabase","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":30,"msg":"successfully connected to database.","time":"2022-12-25T22:43:41.500Z","v":0}
+PM2      | Change detected on path createDeploymentscript for app app - restarting
+PM2      | Change detected on path createDeploymentscript for app app - restarting
+PM2      | Stopping app:app id:0
+PM2      | Stopping app:app id:1
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+0|app    | {"name":"app","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4453,"level":50,"msg":"Caught SIGINT","time":"2022-12-25T22:43:53.313Z","v":0}
+0|app    | {"name":"app","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4453,"level":30,"msg":"Shutdown Complete","time":"2022-12-25T22:43:53.314Z","v":0}
+0|app    | {"name":"app","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4453,"level":50,"msg":"Exiting","time":"2022-12-25T22:43:53.314Z","v":0}
+1|app    | {"name":"app","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":50,"msg":"Caught SIGINT","time":"2022-12-25T22:43:53.319Z","v":0}
+1|app  | {"name":"app","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":50,"msg":"Caught SIGINT","time":"2022-12-25T22:43:53.319Z","v":0}
+1|app    | {"name":"app","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":30,"msg":"Shutdown Complete","time":"2022-12-25T22:43:53.320Z","v":0}
+1|app  | {"name":"app","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":30,"msg":"Shutdown Complete","time":"2022-12-25T22:43:53.320Z","v":0}
+1|app    | {"name":"app","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":50,"msg":"Exiting","time":"2022-12-25T22:43:53.320Z","v":0}
+1|app  | {"name":"app","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4460,"level":50,"msg":"Exiting","time":"2022-12-25T22:43:53.320Z","v":0}
+PM2      | App name:app id:1 disconnected
+PM2      | App name:app id:0 disconnected
+PM2      | App [app:0] exited with code [1] via signal [SIGINT]
+PM2      | App [app:1] exited with code [1] via signal [SIGINT]
+PM2      | pid=4453 msg=process killed
+PM2      | App [app:0] starting in -cluster mode-
+PM2      | pid=4460 msg=process killed
+PM2      | App [app:1] starting in -cluster mode-
+PM2      | App [app:1] online
+PM2      | App [app:0] online
+PM2      | Change detected on path deployment/6-igw.tf for app app - restarting
+PM2      | Change detected on path deployment/6-igw.tf for app app - restarting
+PM2      | Stopping app:app id:0
+PM2      | Stopping app:app id:1
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | App name:app id:1 disconnected
+PM2      | App name:app id:0 disconnected
+PM2      | App [app:0] exited with code [0] via signal [SIGINT]
+PM2      | App [app:1] exited with code [0] via signal [SIGINT]
+PM2      | pid=4550 msg=process killed
+PM2      | App [app:1] starting in -cluster mode-
+PM2      | pid=4549 msg=process killed
+PM2      | App [app:0] starting in -cluster mode-
+PM2      | App [app:1] online
+PM2      | App [app:0] online
+PM2      | Change detected on path jest.config.ts for app app - restarting
+PM2      | Change detected on path jest.config.ts for app app - restarting
+PM2      | Stopping app:app id:0
+PM2      | Stopping app:app id:1
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | App name:app id:0 disconnected
+PM2      | App [app:0] exited with code [0] via signal [SIGINT]
+PM2      | App name:app id:1 disconnected
+PM2      | App [app:1] exited with code [0] via signal [SIGINT]
+PM2      | Change detected on path coverage for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | Change detected on path coverage/lcov.info for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | pid=4582 msg=process killed
+PM2      | App [app:0] starting in -cluster mode-
+PM2      | Change detected on path coverage/lcov-report for app app - restarting
+PM2      | pid=4581 msg=process killed
+PM2      | App [app:1] starting in -cluster mode-
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | Change detected on path env-file.zip for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | Change detected on path coverage/lcov-report/base.css for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | Change detected on path coverage/lcov-report/src for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | Change detected on path coverage/lcov-report/src/app.ts.html for app app - restarting
+PM2      | App [app:0] online
+PM2      | Stopping app:app id:0
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | Cancelling versioning data parsing
+PM2      | App name:app id:0 disconnected
+PM2      | App [app:0] exited with code [0] via signal [SIGINT]
+PM2      | Change detected on path coverage/lcov-report/src/features for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | App [app:1] online
+PM2      | Change detected on path coverage/lcov-report/src/mocks/auth.mock.ts.html for app app - restarting
+PM2      | Change detected on path coverage/lcov-report/src/mocks/auth.mock.ts.html for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | pid=4628 msg=process killed
+PM2      | App [app:0] starting in -cluster mode-
+PM2      | Change detected on path coverage/lcov-report/src/features/auth for app app - restarting
+PM2      | Change detected on path coverage/lcov-report/src/features/auth for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | Change detected on path coverage/lcov-report/src/shared/sockets/index.html for app app - restarting
+PM2      | Change detected on path coverage/lcov-report/src/shared/sockets/index.html for app app - restarting
+PM2      | App [app:0] online
+PM2      | Stopping app:app id:0
+PM2      | Stopping app:app id:1
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | App name:app id:1 disconnected
+PM2      | App name:app id:0 disconnected
+PM2      | App [app:1] exited with code [0] via signal [SIGINT]
+PM2      | App [app:0] exited with code [0] via signal [SIGINT]
+PM2      | Change detected on path coverage/lcov-report/src/features/auth/controllers for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | pid=4644 msg=process killed
+PM2      | App [app:0] starting in -cluster mode-
+PM2      | pid=4630 msg=process killed
+PM2      | App [app:1] starting in -cluster mode-
+PM2      | Change detected on path coverage/lcov-report/src/features/auth/controllers/currentUser.ts.html for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | App [app:1] online
+PM2      | App [app:0] online
+PM2      | Change detected on path coverage/lcov-report/src/shared/services/emails/templates for app app - restarting
+PM2      | Stopping app:app id:0
+PM2      | Stopping app:app id:1
+PM2      | Change detected on path coverage/lcov-report/src/shared/services/emails/templates for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | App name:app id:0 disconnected
+PM2      | App [app:0] exited with code [0] via signal [SIGINT]
+PM2      | Change detected on path env-file.zip for app app - restarting
+PM2      | App name:app id:1 disconnected
+PM2      | App [app:1] exited with code [0] via signal [SIGINT]
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | Change detected on path coverage/lcov-report/src/shared/services/emails/templates/forgot-password for app app - restarting
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | pid=4664 msg=process killed
+PM2      | App [app:0] starting in -cluster mode-
+PM2      | Change detected on path coverage/lcov-report/src/shared/services/emails/templates/forgot-password/forgot-password-template.ts.html for app app - restarting
+PM2      | Cancelling versioning data parsing
+PM2      | [Watch] Process name app is being stopped so I won't restart it
+PM2      | pid=4665 msg=process killed
+PM2      | App [app:1] starting in -cluster mode-
+PM2      | App [app:0] online
+PM2      | App [app:1] online
+PM2      | [Watch] Stop watching app
+PM2      | Stopping app:app id:0
+PM2      | [Watch] Stop watching app
+PM2      | Stopping app:app id:1
+PM2      | App name:app id:1 disconnected
+PM2      | App [app:0] exited with code [0] via signal [SIGINT]
+PM2      | App [app:1] exited with code [0] via signal [SIGINT]
+PM2      | App name:app id:0 disconnected
+PM2      | pid=4687 msg=process killed
+PM2      | pid=4694 msg=process killed
+PM2      | [Watch] Start watching app
+PM2      | App [app:0] starting in -cluster mode-
+PM2      | App [app:0] online
+PM2      | [Watch] Start watching app
+PM2      | App [app:1] starting in -cluster mode-
+PM2      | App [app:1] online
+0|app    | (node:4809) [MONGOOSE] DeprecationWarning: Mongoose: the `strictQuery` option will be switched back to `false` by default in Mongoose 7. Use `mongoose.set('strictQuery', false);` if you want to prepare for this change. Or use `mongoose.set('strictQuery', true);` to suppress this warning.
+0|app    | (Use `node --trace-deprecation ...` to show where the warning was created)
+0|app    | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4809,"level":30,"msg":"Worker with process id of 4809 has started...","time":"2022-12-25T22:44:22.964Z","v":0}
+0|app    | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4809,"level":30,"msg":"Server has started with process 4809","time":"2022-12-25T22:44:22.965Z","v":0}
+0|app    | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4809,"level":30,"msg":"Server running on port 4000","time":"2022-12-25T22:44:23.035Z","v":0}
+0|app    | {"name":"setupDatabase","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4809,"level":30,"msg":"successfully connected to database.","time":"2022-12-25T22:44:23.225Z","v":0}
+1|app    | (node:4816) [MONGOOSE] DeprecationWarning: Mongoose: the `strictQuery` option will be switched back to `false` by default in Mongoose 7. Use `mongoose.set('strictQuery', false);` if you want to prepare for this change. Or use `mongoose.set('strictQuery', true);` to suppress this warning.
+1|app    | (Use `node --trace-deprecation ...` to show where the warning was created)
+1|app  | (node:4816) [MONGOOSE] DeprecationWarning: Mongoose: the `strictQuery` option will be switched back to `false` by default in Mongoose 7. Use `mongoose.set('strictQuery', false);` if you want to prepare for this change. Or use `mongoose.set('strictQuery', true);` to suppress this warning.
+1|app  | (Use `node --trace-deprecation ...` to show where the warning was created)
+1|app    | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4816,"level":30,"msg":"Worker with process id of 4816 has started...","time":"2022-12-25T22:44:23.541Z","v":0}
+1|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4816,"level":30,"msg":"Worker with process id of 4816 has started...","time":"2022-12-25T22:44:23.541Z","v":0}
+1|app    | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4816,"level":30,"msg":"Server has started with process 4816","time":"2022-12-25T22:44:23.541Z","v":0}
+1|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4816,"level":30,"msg":"Server has started with process 4816","time":"2022-12-25T22:44:23.541Z","v":0}
+1|app    | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4816,"level":30,"msg":"Server running on port 4000","time":"2022-12-25T22:44:23.575Z","v":0}
+1|app  | {"name":"setupServer","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4816,"level":30,"msg":"Server running on port 4000","time":"2022-12-25T22:44:23.575Z","v":0}
+1|app    | {"name":"setupDatabase","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4816,"level":30,"msg":"successfully connected to database.","time":"2022-12-25T22:44:23.730Z","v":0}
+1|app  | {"name":"setupDatabase","hostname":"ip-10-0-3-43.us-west-2.compute.internal","pid":4816,"level":30,"msg":"successfully connected to database.","time":"2022-12-25T22:44:23.730Z","v":0}
+[ec2-user@ip-10-0-3-43 log]$
