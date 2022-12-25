@@ -38,7 +38,6 @@ fi
 cd /home/ec2-user
 
 git clone -b dev https://github.com/JasNagra92/chatty-backend.git
-
 cd chatty-backend
 npm install
 aws s3 sync s3://chatapptutorial-env-files/develop .

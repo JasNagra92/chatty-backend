@@ -37,7 +37,7 @@ variable "global_destination_cidr_block" {
 variable "bastion_host_cidr" {
   description = "CIDR Block for Bastion Host Ingress"
   type        = string
-  default     = "108.180.152.58/32"
+  default     = "0.0.0.0/0"
 }
 
 variable "https_ssl_policy" {
