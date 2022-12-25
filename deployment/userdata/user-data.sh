@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash -xe
+exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 
 function program_is_installed {
   local return_=1
