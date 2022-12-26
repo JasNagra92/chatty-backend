@@ -5,3 +5,9 @@ aws deploy create-deployment \
     --deployment-group-name chatapp-server-default-group \
     --file-exists-behavior "OVERWRITE" \
     --s3-location bucket=chatapptutorial-app,bundleType=zip,key=chatapp.zip
+
+aws deploy create-deployment \
+  --application-name chatapp-server-default-app \
+  --deployment-config-name CodeDeployDefault.AllAtOnce \
+  --deployment-group-name chatapp-server-default-group \
+  --github-location repository=JasNagra92/chatty-backend,commitId=b13f95b237af5d5996b169d053cd99d6070ca65a
