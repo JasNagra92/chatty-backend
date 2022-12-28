@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/bash -xe
+exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 
 function program_is_installed {
   local return_=1
@@ -6,6 +7,14 @@ function program_is_installed {
   type $1 >/dev/null 2>&1 || { local return_=0; }
   echo "$return_"
 }
+
+sudo yum update -y
+sudo yum install ruby -y
+sudo yum install wget -y
+cd /home/ec2-user/
+wget https://aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com/latest/install
+sudo chmod +x ./install
+sudo ./install auto
 
 #check if NodeJs is installed. If not, install it
 if [ $(program_is_installed node) == 0 ]; then
@@ -32,17 +41,8 @@ cd /home/ec2-user
 git clone -b dev https://github.com/JasNagra92/chatty-backend.git
 cd chatty-backend
 npm install
-
 aws s3 sync s3://chatapptutorial-env-files/develop .
 unzip env-file.zip
 cp .env.develop .env
 npm run build
-sudo yum update -y
-sudo yum install ruby -y
-sudo yum install wget -y
-cd /home/ec2-user/
-wget https://aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com/latest/install
-sudo chmod +x ./install
-sudo ./install auto
-
 npm run start
