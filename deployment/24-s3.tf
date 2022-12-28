@@ -10,7 +10,7 @@ resource "aws_s3_bucket_acl" "code_deploy_bucket_acl" {
   acl    = "private"
 }
 
-resource "aws_s3_bucket_public_access_block" "publi_block" {
+resource "aws_s3_bucket_public_access_block" "public_block" {
   bucket = aws_s3_bucket.code_deploy_backend_bucket.id
 
   block_public_acls       = true
